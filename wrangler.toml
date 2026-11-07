@@ -1,0 +1,35 @@
+name = "ghazali-ai-studio"
+main = "worker/index.ts"
+compatibility_date = "2025-06-20"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./dist"
+binding = "STATIC"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ghazali-studio"
+database_id = "dd195629-9a1d-4edc-8776-a0b6019deb48"
+migrations_dir = "migrations"
+
+# Persistent object storage binding; provisioning and billing eligibility must be verified separately.
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "ghazali-studio-media"
+
+[[queues.producers]]
+binding = "PRODUCTION_QUEUE"
+queue = "ghazali-production"
+
+[[queues.consumers]]
+queue = "ghazali-production"
+max_batch_size = 1
+max_retries = 5
+dead_letter_queue = "ghazali-production-dlq"
+max_concurrency = 2
+
+[vars]
+APP_ORIGIN = "http://localhost:5173"
+TTS_SUPPORTED_LANGUAGES = ""

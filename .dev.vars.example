@@ -1,0 +1,12 @@
+# Copy to .dev.vars for local Wrangler development. Keep real secrets out of Git.
+DEV_AUTH_BYPASS=true
+APP_ORIGIN=http://localhost:5173
+OPENAI_API_KEY=
+REPLICATE_API_TOKEN=
+REPLICATE_MUSIC_MODEL=meta/musicgen
+TTS_SUPPORTED_LANGUAGES=
+RENDERER_URL=http://127.0.0.1:8080
+RENDERER_TOKEN=replace-with-a-long-random-secret
+MEDIA_SIGNING_SECRET=replace-with-a-different-long-random-secret
+ACCESS_TEAM_DOMAIN=
+ACCESS_AUD=
